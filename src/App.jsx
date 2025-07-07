@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import LogIn from "./components/LogIn";
 import SignUp from "./components/SignUp";
+import Secret from "./components/Secret";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Routes>{/* Currently, we don't have any routes defined */}
            <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} /> 
+          <Route path="/secret" element={<Secret />} /> 
         </Routes>
       </div>
     </div>

@@ -12,7 +12,7 @@ const Secret = () => {
 
   const checkAuth = async () => {
     try {
-      const response = await axios.get('/auth/me');
+      const response = await axios.get('http://localhost:8080/auth/me');
       setIsLoggedIn(true);
       setUser(response.data.user);
     } catch (error) {
