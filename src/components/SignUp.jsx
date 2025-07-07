@@ -17,10 +17,15 @@ const SignUp = () => {
       
       setMessage('Account created successfully!');
     } catch (error) {
-      if (error.response && error.response.status === 400) {
-        setMessage('Username does not exist');
-      } else if (error.response && error.response.status === 401) {
-        setMessage('Incorrect password');
+      if (error.response && error.response.data && error.response.data.error) {
+        // Show the exact error message from backend
+        setMessage(error.response.data.error);
+      } else if (error.response && error.response.status === 400) {
+        setMessage('Username and password are required');
+      } else if (error.response && error.response.status === 409) {
+        setMessage('Username already exists');
+      } else if (error.response && error.response.status === 500) {
+        setMessage('Internal server error');
       } else {
         setMessage('Signup failed');
       }
