@@ -17,7 +17,13 @@ const SignUp = () => {
       
       setMessage('Account created successfully!');
     } catch (error) {
-      setMessage('Signup failed');
+      if (error.response && error.response.status === 400) {
+        setMessage('Username does not exist');
+      } else if (error.response && error.response.status === 401) {
+        setMessage('Incorrect password');
+      } else {
+        setMessage('Signup failed');
+      }
     }
   };
 
