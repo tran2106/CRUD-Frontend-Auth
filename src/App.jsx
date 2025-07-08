@@ -1,16 +1,14 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-// import "./AppStyles.css";
 import NavBar from "./components/NavBar";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router";
 import LogIn from "./components/LogIn";
 import SignUp from "./components/SignUp";
 import Secret from "./components/Secret";
+// import "./AppStyles.css";
 
 const App = () => {
-
   const location = useLocation();
-
   const isAuthPage = location.pathname === "/login" || location.pathname === "/signup";
 
   const renderURLHelper = () => {
@@ -29,24 +27,16 @@ const App = () => {
     }
     return null;
   };
-  
-  
-  
-   
-
 
   return (
     <div>
       {!isAuthPage && <NavBar />}
       <div className="app">
-      {renderURLHelper()}
-        {/* <h1>Hello React!</h1>
-        <img className="react-logo" src="/react-logo.svg" alt="React Logo" /> */}
-
-        <Routes>{/* Currently, we don't have any routes defined */}
-        <Route path="/login" element={<LogIn />} />
-        <Route path="/signup" element={<SignUp />} /> 
-        <Route path="/secret" element={<Secret />} /> 
+        {renderURLHelper()}
+        <Routes>
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/secret" element={<Secret />} />
         </Routes>
       </div>
     </div>

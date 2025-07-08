@@ -8,13 +8,13 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
       const response = await axios.post('http://localhost:8080/auth/signup', {
         username,
         password
       });
-      
+
       setMessage('Account created successfully!');
     } catch (error) {
       if (error.response && error.response.data && error.response.data.error) {
@@ -58,9 +58,7 @@ const SignUp = () => {
             required
           />
         </div>
-        <button className="form-button" type="submit">
-          Sign Up
-        </button>
+        <button className="form-button" type="submit">Sign Up</button>
       </form>
       {message && <p className="form-message">{message}</p>}
     </div>

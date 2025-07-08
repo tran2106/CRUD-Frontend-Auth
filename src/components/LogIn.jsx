@@ -13,10 +13,12 @@ const LogIn = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       const response = await axios.post('http://localhost:8080/auth/login', logInData, {
         withCredentials: true
       });
+
       if (response.data.success) {
         alert('Login successful!');
         navigate('/secret');
@@ -31,8 +33,20 @@ const LogIn = () => {
   return (
     <form onSubmit={handleSubmit}>
       <h2>Log In</h2>
-      <input name="username" value={logInData.username} onChange={handleChange} placeholder="Username" />
-      <input name="password" type="password" value={logInData.password} onChange={handleChange} placeholder="Password" />
+      <input
+        name="username"
+        type="text"
+        value={logInData.username}
+        onChange={handleChange}
+        placeholder="Username"
+      />
+      <input
+        name="password"
+        type="password"
+        value={logInData.password}
+        onChange={handleChange}
+        placeholder="Password"
+      />
       <button type="submit">Log In</button>
     </form>
   );

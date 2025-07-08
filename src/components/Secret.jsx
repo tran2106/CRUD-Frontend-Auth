@@ -15,8 +15,9 @@ const Secret = () => {
   const checkAuth = async () => {
     try {
       const response = await axios.get('http://localhost:8080/auth/me', {
-        withCredentials: true, 
+        withCredentials: true,
       });
+
       setIsLoggedIn(true);
       setUser(response.data.user);
     } catch (error) {
@@ -26,7 +27,6 @@ const Secret = () => {
     }
   };
 
-  
   const handleLogout = async () => {
     try {
       const response = await axios.post('http://localhost:8080/auth/logout', null, {
@@ -46,7 +46,7 @@ const Secret = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (<div>Loading...</div>);
   }
 
   if (!isLoggedIn) {
