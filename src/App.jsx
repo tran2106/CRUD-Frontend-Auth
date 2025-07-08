@@ -8,6 +8,9 @@ import SignUp from "./components/SignUp";
 import Secret from "./components/Secret";
 
 const App = () => {
+   
+
+
   return (
     <div>
       <NavBar />
@@ -16,7 +19,7 @@ const App = () => {
         <img className="react-logo" src="/react-logo.svg" alt="React Logo" /> */}
 
         <Routes>{/* Currently, we don't have any routes defined */}
-           <Route path="/login" element={<LogIn />} />
+        <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} /> 
           <Route path="/secret" element={<Secret />} /> 
         </Routes>
